@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolo Sport</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Fixed top navigation: brand logo, product category shortcuts, search, Instagram, contact, and cart. -->
+<header class="nav">
+    <div class="nav-left">
+        <img src="images/logo-nav.png" class="logo" alt="Bolo Sport logo">
+    </div>
+
+    <nav class="nav-center">
+        <a href="#products-section" data-filter-link="new">NEW ARRIVALS</a>
+        <a href="#products-section" data-filter-link="nogi">RASHGUARDS</a>
+        <a href="#products-section" data-filter-link="shorts">SHORTS</a>
+        <a href="#products-section" data-filter-link="apparel">APPAREL</a>
+    </nav>
+
+    <div class="nav-right">
+        <form class="search-form" id="search-form" role="search">
+            <label for="search-input" class="visually-hidden">Search products</label>
+            <input id="search-input" type="search" placeholder="SEARCH" autocomplete="off">
+        </form>
+        <a href="https://www.instagram.com/bolosport.usa/" class="nav-instagram" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="#contact" class="nav-contact">CONTACT</a>
+        <button id="cart-toggle" class="cart-toggle" type="button">CART <span id="cart-count">0</span></button>
+    </div>
+</header>
+
+<!-- Hero section: first visual impression and primary shop link. -->
+<section class="hero">
+    <div class="hero-text">
+        <h2>NO-GI<br>NO LIMITS</h2>
+        <p>Built for the mats. Designed for war.</p>
+        <a href="#products-section" class="hero-button">SHOP NOW</a>
+    </div>
+</section>
+
+<!-- Featured Bloodsport drop: large clickable promo that filters the catalog to Bloodsport products. -->
+<section class="collection-header">
+    <a href="#products-section" class="drop-feature" data-filter-link="bloodsport">
+        <span class="collection-kicker">NEW DROP</span>
+        <span class="collection-subtext">Premium no-gi essentials built for training, competition, and everyday use.</span>
+        <span class="drop-cta">Shop Bloodsport</span>
+        <img src="images/oversized-logo.png" alt="Bloodsport" class="drop-logo">
+    </a>
+</section>
+
+<!-- Collection cards: secondary promos for Backtake and Bolo Bear collections. -->
+<section class="collection-showcase" aria-label="Bolo Sport collections">
+    <a href="#products-section" class="collection-card collection-card-backtake" data-filter-link="backtake">
+        <img src="images/backtake-logo.png" alt="Backtake" class="collection-card-logo">
+        <span class="collection-card-action">Shop Backtake</span>
+    </a>
+
+    <a href="#products-section" class="collection-card collection-card-bolobear" data-filter-link="bolobear">
+        <img src="images/Bolobear-logo.png" alt="Bolo Bear" class="collection-card-logo">
+        <span class="collection-card-action">Shop Bolo Bear</span>
+    </a>
+</section>
+
+<!-- Category rails: small previews of each major product type before the full catalog. -->
+<section class="category-rails" aria-label="Featured product categories">
+    <div class="rail-heading">
+        <div>
+            <p class="collection-kicker">SHOP BY CATEGORY</p>
+            <h3>Rashguards</h3>
+        </div>
+        <a href="#products-section" data-filter-link="nogi">Shop all rashguards</a>
+    </div>
+    <div id="rashguards-rail" class="product-rail"></div>
+
+    <div class="rail-heading">
+        <div>
+            <p class="collection-kicker">TRAINING SHORTS</p>
+            <h3>Fight Shorts</h3>
+        </div>
+        <a href="#products-section" data-filter-link="shorts">Shop all shorts</a>
+    </div>
+    <div id="shorts-rail" class="product-rail"></div>
+
+    <div class="rail-heading">
+        <div>
+            <p class="collection-kicker">OFF THE MATS</p>
+            <h3>Apparel</h3>
+        </div>
+        <a href="#products-section" data-filter-link="apparel">Shop all apparel</a>
+    </div>
+    <div id="apparel-rail" class="product-rail"></div>
+</section>
+
+<!-- Catalog controls: dropdowns for filtering and sorting the complete product grid. -->
+<section class="shop-controls" id="products-section">
+    <h3>Choose Your Gear</h3>
+    <div class="collection-actions">
+        <select id="filter">
+            <option value="all">ALL</option>
+            <option value="new">NEW ARRIVALS</option>
+            <option value="bloodsport">BLOODSPORT</option>
+            <option value="backtake">BACKTAKE</option>
+            <option value="bolobear">BOLO BEAR</option>
+            <option value="nogi">RASHGUARDS</option>
+            <option value="shorts">SHORTS</option>
+            <option value="apparel">APPAREL</option>
+        </select>
+
+        <select id="sort">
+            <option value="default">SORT</option>
+            <option value="low">PRICE LOW</option>
+            <option value="high">PRICE HIGH</option>
+        </select>
+    </div>
+</section>
+
+<!-- Product grid: JavaScript fills this area with product cards from script.js. -->
+<section class="products-section">
+    <div id="shorts-guide" class="shorts-guide" hidden>
+        <div class="shorts-guide-text">
+            <p class="shorts-guide-kicker">SHORTS FIT GUIDE</p>
+            <h3>Find Your Fight Fit</h3>
+            <p>Use the size guide before picking your shorts.</p>
+        </div>
+        <img
+            src="images/sizing-shorts.jpg"
+            alt="Bolo Sport shorts sizing guide"
+            class="zoomable-image"
+            data-full-image="images/sizing-shorts.jpg"
+        >
+    </div>
+
+    <div id="products" class="grid"></div>
+    <p id="no-results" class="no-results" hidden>No products found.</p>
+</section>
+
+<!-- Contact section: mailto form for questions, orders, team gear, or general messages. -->
+<section class="contact-section" id="contact">
+    <div class="contact-copy">
+        <p class="collection-kicker">CONTACT US</p>
+        <h3>Questions, Orders, Team Gear</h3>
+        <p>Email us at <a href="mailto:info@bolosport.com">info@bolosport.com</a> or send a message with the form.</p>
+    </div>
+
+    <form id="contact-form" class="contact-form">
+        <label>
+            Your Email
+            <input id="contact-email" type="email" placeholder="you@example.com" required>
+        </label>
+
+        <label>
+            What Do You Need?
+            <select id="contact-topic">
+                <option value="Product question">Product question</option>
+                <option value="Order request">Order request</option>
+                <option value="Team gear">Team gear</option>
+                <option value="General question">General question</option>
+            </select>
+        </label>
+
+        <label class="contact-message">
+            Message
+            <textarea id="contact-message" rows="6" placeholder="Tell us what you need, sizes, products, or questions." required></textarea>
+        </label>
+
+        <button type="submit">Send Message</button>
+        <p class="contact-note">This opens your email app with the message ready to send.</p>
+    </form>
+</section>
+
+<!-- Instagram callout: highly visible link to Bolo Sport's main social presence. -->
+<section class="instagram-callout">
+    <div>
+        <p class="collection-kicker">FOLLOW THE DROP</p>
+        <h3>@bolosport.usa</h3>
+        <p>New gear, athlete posts, and drop updates live on Instagram.</p>
+    </div>
+    <a href="https://www.instagram.com/bolosport.usa/" target="_blank" rel="noopener">Follow on Instagram</a>
+</section>
+
+<!-- Brand story: short positioning statement for the company. -->
+<section class="brand-story">
+    <p class="collection-kicker">BOLO SPORT</p>
+    <h3>Pressure Tested. Mat Ready.</h3>
+    <p>No-gi gear for athletes who want sharp designs, durable training pieces, and drops that feel like fight posters.</p>
+</section>
+
+<!-- Trust strip: three quick selling points shown near the bottom of the page. -->
+<section class="trust-strip" aria-label="Bolo Sport promises">
+    <div>
+        <h4>Secure Fit</h4>
+        <p>Built for movement, scrambles, and long rounds.</p>
+    </div>
+    <div>
+        <h4>Limited Drops</h4>
+        <p>Collections stay focused so each design has a point of view.</p>
+    </div>
+    <div>
+        <h4>Quality Products</h4>
+        <p>Made to last and worn by jiu-jitsu's top athletes.</p>
+    </div>
+</section>
+
+<!-- Image modal: hidden overlay used when a visitor clicks any product or guide image. -->
+<div id="image-modal" class="image-modal" aria-hidden="true">
+    <button class="image-modal-close" type="button" aria-label="Close image">&times;</button>
+    <img id="modal-image" src="" alt="">
+</div>
+
+<!-- Cart drawer: hidden side panel that stores and displays local cart items. -->
+<aside id="cart-drawer" class="cart-drawer" aria-hidden="true">
+    <div class="cart-header">
+        <div>
+            <p class="collection-kicker">YOUR CART</p>
+            <h3>Fight Kit</h3>
+        </div>
+        <button id="cart-close" class="cart-close" type="button" aria-label="Close cart">&times;</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <p id="cart-empty" class="cart-empty">Your cart is empty.</p>
+    <div class="cart-footer">
+        <div class="cart-total-row">
+            <span>Subtotal</span>
+            <strong id="cart-total">$0</strong>
+        </div>
+        <button class="checkout-button" type="button">Checkout coming soon</button>
+    </div>
+</aside>
+
+<!-- Cart overlay: darkens the page behind the cart drawer and closes the cart when clicked. -->
+<div id="cart-overlay" class="cart-overlay" hidden></div>
+
+<script src="script.js"></script>
+</body>
+</html>
