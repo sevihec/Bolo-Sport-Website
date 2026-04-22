@@ -21,8 +21,8 @@ The owner is a competitive athlete in a sport that does not provide much financi
 
 At the same time, it allowed me to gain hands on experience building a real world product that connects directly to a business need.
 
-Future Improvements
-Add shopping cart functionality
-Connect to a backend for real data storage
-Improve mobile responsiveness
-Add checkout flow
+Future Improvements:
+Add shopping cart functionality,
+Connect to a backend for real data storage,
+Improve mobile responsiveness,
+Add checkout flow,
